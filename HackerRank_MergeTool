@@ -1,0 +1,22 @@
+def merge_the_tools(string, k):
+    no_of_substr = len(string)//k
+    substr_list = list()
+    n = 0
+    j = k
+    for i in range(0, no_of_substr):
+        str1 = string[n:k]
+        substr_list.append(str1)
+        n = k
+        if k <= len(string):
+            k += j
+    final_words = list()
+    for i in substr_list:
+        final_words.append(check_duplicate(i))
+    [print (i) for i in final_words]
+
+
+def check_duplicate(string):
+    str1 = "".join(sorted(set(string), key=string.index))
+    return str1
+
+if __name__ == '__main__':
